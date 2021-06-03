@@ -11,10 +11,10 @@ const app = new Koa();
 app.use(cors());
 app.use(koaBody({urlencoded: true}))
 app.use(slow({
-  delay: 500
+  delay: 3000
 }))
 
-let messages = [fakeData(), fakeData(), fakeData()];
+let posts = [fakeData(), fakeData(), fakeData()];
 
 
 
@@ -23,7 +23,7 @@ router.get('/posts', async (ctx) => {
   ctx.response.body = {
     status: "ok",
     timestamp: Date.now(),
-    messages: messages
+    posts
   };
 })
 
